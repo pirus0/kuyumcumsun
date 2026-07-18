@@ -106,8 +106,20 @@
   .delay-3 { animation-delay: .24s; }
   .delay-4 { animation-delay: .32s; }
 
+  /* Kaydırınca bulanıktan nete gelen metin */
+  .reveal-blur {
+    filter: blur(10px);
+    opacity: 0;
+    transition: filter 1s cubic-bezier(.16,1,.3,1), opacity 1s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal-blur.is-visible {
+    filter: blur(0);
+    opacity: 1;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .fade-up, .fade-in { animation: none; opacity: 1; transform: none; }
+    .reveal-blur { filter: none; opacity: 1; transition: none; }
   }
 
   /* Altın dolgu: tek renkli zeminden bağımsız çalışan tek ciddi vurgu — buton, fiyat şeridi */

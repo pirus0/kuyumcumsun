@@ -9,6 +9,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 const LINKS = [
   { href: "/", label: "Anasayfa" },
   { href: "/hizmetler", label: "Hizmetler" },
+  { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/iletisim", label: "İletişim" },
 ];
 

@@ -1,13 +1,15 @@
 import Link from "next/link";
 import ProductPreview from "./ProductPreview";
 import TrustStrip from "./TrustStrip";
+import Glow from "./Glow";
 import { IconWhatsApp, IconArrowRight } from "./icons";
 import { whatsappLink } from "@/lib/whatsapp";
 
 export default function Hero() {
   return (
-    <section className="max-w-5xl mx-auto px-6 sm:px-8 pt-20 sm:pt-28 pb-20 sm:pb-28">
-      <div className="text-center flex flex-col items-center">
+    <section className="relative overflow-hidden max-w-5xl mx-auto px-6 sm:px-8 pt-20 sm:pt-28 pb-20 sm:pb-28">
+      <Glow className="w-[500px] h-[500px] -top-52 left-1/2 -translate-x-1/2" />
+      <div className="relative text-center flex flex-col items-center">
         <span className="fade-up text-xs text-fg-dim">
           Kuyumcular için dijital vitrin
         </span>

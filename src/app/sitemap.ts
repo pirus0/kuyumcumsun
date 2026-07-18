@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    ...["hizmetler", "iletisim"].map((path) => ({
+    ...["hizmetler", "hakkimizda", "iletisim"].map((path) => ({
       url: `${SITE_URL}/${path}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
