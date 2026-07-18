@@ -22,7 +22,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div>
-        <label htmlFor="name" className="text-xs uppercase tracking-[0.15em] text-mist/70">
+        <label htmlFor="name" className="text-xs uppercase tracking-[0.15em] text-fg-faint">
           Adınız
         </label>
         <input
@@ -36,7 +36,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="business" className="text-xs uppercase tracking-[0.15em] text-mist/70">
+        <label htmlFor="business" className="text-xs uppercase tracking-[0.15em] text-fg-faint">
           Kuyumcunuzun adı
         </label>
         <input
@@ -49,7 +49,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="text-xs uppercase tracking-[0.15em] text-mist/70">
+        <label htmlFor="message" className="text-xs uppercase tracking-[0.15em] text-fg-faint">
           Mesajınız
         </label>
         <textarea
@@ -65,7 +65,7 @@ export default function ContactForm() {
         WhatsApp&apos;ta Devam Et
         <IconArrowRight size={16} />
       </button>
-      <p className="text-xs text-mist/50">
+      <p className="text-xs text-fg-faint">
         Gönder&apos;e bastığınızda mesajınız WhatsApp üzerinden bize iletilir.
       </p>
     </form>

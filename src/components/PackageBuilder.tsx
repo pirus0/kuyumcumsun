@@ -76,7 +76,7 @@ export default function PackageBuilder() {
         ].join("\n");
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="hairline-t">
       {SERVICES.map((service) => {
         const Icon = ICONS[service.icon];
         const pkgChecked = selectedPkgs.has(service.slug);
@@ -84,35 +84,31 @@ export default function PackageBuilder() {
           <div
             key={service.slug}
             id={service.slug}
-            className={`glass p-6 sm:p-8 scroll-mt-24 ${shakeSlug === service.slug ? "shake" : ""}`}
+            className={`hairline-b py-10 scroll-mt-24 ${shakeSlug === service.slug ? "shake" : ""}`}
           >
             <label className="flex items-start gap-4 cursor-pointer">
               <Checkbox checked={pkgChecked} onChange={() => togglePkg(service.slug)} />
               <div className="flex-1 flex flex-wrap items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-[10px] bg-[var(--gold-3)]/12 text-[var(--gold-2)] shrink-0">
-                    <Icon size={22} />
-                  </span>
+                  <Icon size={20} className="text-fg-faint shrink-0" />
                   <div>
-                    <h2 className="font-heading text-lg font-medium">{service.title}</h2>
-                    <p className="text-sm text-mist">{service.tagline}</p>
+                    <h2 className="font-medium">{service.title}</h2>
+                    <p className="text-sm text-fg-dim">{service.tagline}</p>
                   </div>
                 </div>
-                <span className="font-heading font-semibold text-[var(--gold-2)] tabular-nums">
+                <span className="font-semibold text-[var(--gold-3)] tabular-nums">
                   {formatTRY(service.price)}
                 </span>
               </div>
             </label>
 
-            <div className="grid sm:grid-cols-2 gap-8 mt-6 sm:pl-[60px]">
+            <div className="grid sm:grid-cols-2 gap-8 mt-6 sm:pl-9">
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-[var(--gold-2)]">
-                  İçerik
-                </span>
+                <span className="text-xs text-fg-faint">İçerik</span>
                 <ul className="mt-3 flex flex-col gap-2.5">
                   {service.content.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-ink">
-                      <IconCheck size={15} className="text-[var(--gold-2)] mt-0.5 shrink-0" />
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-fg">
+                      <IconCheck size={14} className="text-fg-faint mt-0.5 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -120,9 +116,7 @@ export default function PackageBuilder() {
               </div>
 
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-mist/70">
-                  Ek Hizmetler
-                </span>
+                <span className="text-xs text-fg-faint">Ek Hizmetler</span>
                 <div className="mt-3 flex flex-col gap-1">
                   {service.extras.map((extra, i) => {
                     const key = extraKey(service.slug, i);
@@ -134,14 +128,14 @@ export default function PackageBuilder() {
                       >
                         <span className="flex items-center gap-3">
                           <Checkbox checked={checked} onChange={() => toggleExtra(key)} small />
-                          <span className="text-sm text-ink">{extra.label}</span>
+                          <span className="text-sm text-fg">{extra.label}</span>
                           {extra.recommended && (
-                            <span className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full bg-[var(--gold-3)]/15 text-[var(--gold-2)] shrink-0">
+                            <span className="text-[10px] uppercase tracking-wide text-[var(--gold-3)] shrink-0">
                               Önerilir
                             </span>
                           )}
                         </span>
-                        <span className="text-sm text-mist shrink-0 tabular-nums">
+                        <span className="text-sm text-fg-dim shrink-0 tabular-nums">
                           +{formatTRY(extra.price)}
                         </span>
                       </label>
@@ -154,15 +148,13 @@ export default function PackageBuilder() {
         );
       })}
 
-      <div className="glass p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+      <div className="py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-mist/70">
-            Toplam
-          </p>
-          <p className="font-heading text-3xl font-semibold text-[var(--gold-2)] mt-1 tabular-nums">
+          <p className="text-xs text-fg-faint">Toplam</p>
+          <p className="text-3xl font-semibold text-[var(--gold-3)] mt-1 tabular-nums">
             {formatTRY(total)}
           </p>
-          <p className="text-xs text-mist mt-2 max-w-sm">
+          <p className="text-xs text-fg-dim mt-2 max-w-sm">
             Fiyatlar yaklaşık olup projenin kapsamına göre kesinleşir.
           </p>
         </div>
@@ -172,7 +164,7 @@ export default function PackageBuilder() {
           rel="noopener noreferrer"
           className="btn-primary justify-center shrink-0 self-start sm:self-auto"
         >
-          <IconWhatsApp size={20} />
+          <IconWhatsApp size={18} />
           İletişime Geç
         </a>
       </div>
@@ -200,7 +192,7 @@ function Checkbox({
       />
       <span
         className={`flex items-center justify-center w-full h-full rounded-[6px] border transition-colors ${
-          checked ? "gold-fill border-transparent" : "border-mist/30"
+          checked ? "gold-fill border-transparent" : "border-[var(--line-strong)]"
         }`}
       >
         {checked && <IconCheck size={small ? 11 : 13} />}

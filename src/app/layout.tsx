@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoldTicker from "@/components/GoldTicker";
@@ -9,17 +9,10 @@ import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
 const inter = Inter({
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -51,7 +44,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="tr" className={inter.variable}>
       <body className="min-h-full flex flex-col">
         <OrganizationJsonLd />
         <GoldTicker />

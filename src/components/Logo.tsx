@@ -5,11 +5,11 @@ export default function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-2.5 font-heading font-medium tracking-wide text-paper ${className}`}
+      className={`inline-flex items-center gap-2 font-semibold tracking-tight text-fg ${className}`}
       aria-label="Kuyumcumsun anasayfa"
     >
-      <IconGem size={24} className="text-[var(--gold-3)]" />
-      <span className="text-lg">Kuyumcumsun</span>
+      <IconGem size={20} className="text-[var(--gold-3)]" />
+      <span className="text-[15px]">Kuyumcumsun</span>
     </Link>
   );
 }

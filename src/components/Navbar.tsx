@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className="glass-strong fixed inset-x-0 flex items-center justify-between px-5 sm:px-8"
+        className="hairline-b fixed inset-x-0 flex items-center justify-between px-5 sm:px-8 bg-bg/90 backdrop-blur-sm"
         style={{ top: "var(--ticker-h)", height: "var(--nav-h)", zIndex: 1010 }}
       >
         <Logo />
@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="link-underline text-sm text-mist-dark hover:text-paper transition-colors"
+              className="link-underline text-sm text-fg-dim hover:text-fg transition-colors"
             >
               {link.label}
             </Link>

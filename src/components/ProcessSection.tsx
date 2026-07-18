@@ -25,35 +25,23 @@ const STEPS = [
 
 export default function ProcessSection() {
   return (
-    <section className="bg-paper py-24 sm:py-32">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
-        <div className="fade-up text-center max-w-xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold-2)]">
-            Süreç
-          </span>
-          <h2 className="font-heading text-2xl sm:text-3xl font-medium mt-3">
-            Dört adımda devreye alıyoruz
-          </h2>
-        </div>
+    <section className="hairline-t max-w-5xl mx-auto px-6 sm:px-8 py-24 sm:py-32">
+      <div className="fade-up max-w-xl mb-16">
+        <span className="text-xs text-fg-dim">Süreç</span>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mt-3">
+          Dört adımda devreye alıyoruz
+        </h2>
+      </div>
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-4 gap-10 sm:gap-6">
-          <div className="hidden sm:block absolute top-7 left-[12.5%] right-[12.5%] h-px bg-[var(--gold-3)]/25" />
-
-          {STEPS.map((step, i) => (
-            <div key={step.title} className={`fade-up delay-${i + 1} relative flex flex-col items-center text-center gap-4`}>
-              <span className="relative z-10 inline-flex items-center justify-center w-14 h-14 rounded-full glass text-[var(--gold-2)]">
-                <step.Icon size={24} />
-              </span>
-              <div>
-                <span className="text-xs text-[var(--gold-2)]">0{i + 1}</span>
-                <h3 className="font-heading font-medium mt-1">{step.title}</h3>
-                <p className="text-sm text-mist mt-2 leading-relaxed max-w-[220px] mx-auto">
-                  {step.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="fade-up delay-1 grid grid-cols-1 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[var(--line)]">
+        {STEPS.map((step, i) => (
+          <div key={step.title} className="flex flex-col gap-3 py-8 sm:py-0 sm:px-8 first:sm:pl-0">
+            <step.Icon size={20} className="text-fg-faint" />
+            <span className="text-xs text-fg-faint mt-2">0{i + 1}</span>
+            <h3 className="font-medium">{step.title}</h3>
+            <p className="text-sm text-fg-dim leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

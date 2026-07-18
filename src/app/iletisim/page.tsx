@@ -29,19 +29,17 @@ export default function IletisimPage() {
   return (
     <div className="max-w-2xl mx-auto px-6 sm:px-8 py-20">
       <div className="fade-up">
-        <span className="text-xs uppercase tracking-[0.25em] text-[var(--gold-2)]">
-          İletişim
-        </span>
-        <h1 className="font-heading text-3xl sm:text-4xl font-medium mt-3">
+        <span className="text-xs text-fg-dim">İletişim</span>
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mt-3">
           Kuyumcunuzu konuşalım
         </h1>
-        <p className="text-mist mt-4 leading-relaxed">
+        <p className="text-fg-dim mt-4 leading-relaxed">
           En hızlı dönüş WhatsApp üzerinden olur. Formu doldurun, mesajınız
           WhatsApp&apos;a iletilsin.
         </p>
       </div>
 
-      <div className="fade-up delay-1 glass p-8 sm:p-10 mt-10">
+      <div className="fade-up delay-1 hairline-t mt-10 pt-10">
         <ContactForm />
       </div>
 
@@ -50,9 +48,9 @@ export default function IletisimPage() {
           href={whatsappLink("Merhaba, Kuyumcumsun hakkında bilgi almak istiyorum.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-mist hover:text-[var(--gold-2)] transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-fg-dim hover:text-[var(--gold-3)] transition-colors"
         >
-          <IconWhatsApp size={18} />
+          <IconWhatsApp size={17} />
           {WHATSAPP_DISPLAY}
         </a>
       </div>
