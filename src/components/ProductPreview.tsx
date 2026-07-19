@@ -1,4 +1,4 @@
-import { IconGem, IconTrendUp } from "./icons";
+import { IconGoldBar, IconTrendUp } from "./icons";
 
 const PRODUCTS = [
   { name: "Alyans, 8 gr", price: "48.744 ₺" },
@@ -20,7 +20,7 @@ export default function ProductPreview() {
 
       <div className="p-5 sm:p-7">
         <div className="gold-fill inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold">
-          <IconGem size={12} />
+          <IconGoldBar size={12} />
           24 Ayar Gram ₺6.093,03
           <span className="inline-flex items-center gap-0.5">
             <IconTrendUp size={11} />

@@ -1,4 +1,4 @@
-import { IconSearch, IconLayers, IconGem, IconCheck } from "./icons";
+import { IconSearch, IconLayers, IconGoldBar, IconCheck } from "./icons";
 
 const STEPS = [
   {
@@ -12,7 +12,7 @@ const STEPS = [
     desc: "Hangi paketi, ne zaman ve nasıl devreye alacağımızı belirliyoruz.",
   },
   {
-    Icon: IconGem,
+    Icon: IconGoldBar,
     title: "Kurulum",
     desc: "Harita, website, kimlik ve Instagram kurulumlarını devreye alıyoruz.",
   },

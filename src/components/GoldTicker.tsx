@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { IconGem, IconTrendUp, IconTrendDown } from "./icons";
+import { IconGoldBar, IconTrendUp, IconTrendDown } from "./icons";
 import type { GoldPrice } from "@/lib/gold";
 
 const POLL_MS = 90_000;
@@ -48,7 +48,7 @@ export default function GoldTicker() {
       className="gold-fill fixed top-0 inset-x-0 flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold px-4"
       style={{ height: "var(--ticker-h)", zIndex: 1020 }}
     >
-      <IconGem size={15} className="shrink-0" />
+      <IconGoldBar size={15} className="shrink-0" />
       <span className="uppercase tracking-[0.08em] hidden sm:inline">24 Ayar Gram</span>
       {price ? (
         <>
