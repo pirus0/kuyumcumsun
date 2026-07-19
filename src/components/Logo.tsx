@@ -9,7 +9,7 @@ export default function Logo({ className = "" }: { className?: string }) {
       aria-label="Kuyumcumsun anasayfa"
     >
       <IconGem size={20} className="text-[var(--gold-3)]" />
-      <span className="text-[15px]">Kuyumcumsun</span>
+      <span className="font-heading text-[17px] lowercase">Kuyumcumsun</span>
     </Link>
   );
 }

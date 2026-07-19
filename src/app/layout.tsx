@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoldTicker from "@/components/GoldTicker";
@@ -13,6 +13,13 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  weight: "700",
+  subsets: ["latin"],
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -47,7 +54,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={inter.variable}>
+    <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
       <body className="min-h-full flex flex-col">
         <OrganizationJsonLd />
         <GoldTicker />
