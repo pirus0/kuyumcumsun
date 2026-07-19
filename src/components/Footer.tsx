@@ -48,8 +48,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-10 text-xs text-fg-faint">
-        © {new Date().getFullYear()} Kuyumcumsun. Tüm hakları saklıdır.
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-fg-faint">
+        <span>© {new Date().getFullYear()} Kuyumcumsun. Tüm hakları saklıdır.</span>
+        <a href="/gizlilik" className="hover:text-fg-dim transition-colors">
+          Gizlilik Politikası
+        </a>
+        <a href="/kvkk" className="hover:text-fg-dim transition-colors">
+          KVKK Aydınlatma Metni
+        </a>
       </div>
     </footer>
   );
