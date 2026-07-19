@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     description:
       "Kuyumcunuzun dijital vitrinini kuruyoruz: harita, canlı altın kurlu web sitesi, kurumsal kimlik, Instagram.",
   },
+  verification: {
+    google: "ds0AbcauM9leXi5n5yoAT21U4V5TlXb4p5xUQXZ7OSg",
+  },
 };
 
 export default function RootLayout({
