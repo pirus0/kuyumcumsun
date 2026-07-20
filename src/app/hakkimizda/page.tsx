@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Glow from "@/components/Glow";
 import Reveal from "@/components/Reveal";
+import ReferenceMehmetPirlanta from "@/components/ReferenceMehmetPirlanta";
 import { SITE_NAME } from "@/lib/site";
 
 const TITLE = "Hakkımızda";
@@ -56,24 +57,21 @@ export default function HakkimizdaPage() {
         </h2>
 
         <div className="fade-up delay-2 grid sm:grid-cols-2 gap-4 mt-10">
-          {[1, 2].map((i) => (
+          <ReferenceMehmetPirlanta />
+
+          <div className="relative aspect-[4/3] border border-[var(--line)] rounded-lg overflow-hidden flex items-center justify-center">
             <div
-              key={i}
-              className="relative aspect-[4/3] border border-[var(--line)] rounded-lg overflow-hidden flex items-center justify-center"
+              aria-hidden
+              className="absolute inset-0 flex flex-col items-center justify-center gap-3 blur-md select-none"
             >
-              <div
-                aria-hidden
-                className="absolute inset-0 flex flex-col items-center justify-center gap-3 blur-md select-none"
-              >
-                <div className="w-28 h-4 rounded bg-fg-faint/30" />
-                <div className="w-36 h-3 rounded bg-fg-faint/20" />
-                <div className="w-24 h-3 rounded bg-fg-faint/20" />
-              </div>
-              <p className="relative text-sm text-fg-dim text-center px-8">
-                Bu müşterimiz, anonim kalmak istiyor.
-              </p>
+              <div className="w-28 h-4 rounded bg-fg-faint/30" />
+              <div className="w-36 h-3 rounded bg-fg-faint/20" />
+              <div className="w-24 h-3 rounded bg-fg-faint/20" />
             </div>
-          ))}
+            <p className="relative text-sm text-fg-dim text-center px-8">
+              Bu müşterimiz, anonim kalmak istiyor.
+            </p>
+          </div>
         </div>
       </section>
     </div>
