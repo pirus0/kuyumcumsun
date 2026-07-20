@@ -118,7 +118,7 @@ export const SERVICES: Service[] = [
     benefit: "Işığı Doğru Yakalayın",
     title: "Ürün Çekimi Paketi",
     tagline: "Altın ve pırlanta, ışığı doğru yakalayan bir çekimle satar.",
-    price: 6990,
+    price: 9990,
     content: [
       "Stüdyoda profesyonel ürün çekimi (makro)",
       "Parlamasız, yansımasız aydınlatma",

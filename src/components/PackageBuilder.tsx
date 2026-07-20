@@ -25,7 +25,7 @@ const ICONS = {
 // Tüm paketler + tüm ek hizmetler (adet başına ücretlenenler hariç) birlikte
 // alındığında geçerli olan sabit fiyat. Normal toplamı biz hesaplıyoruz,
 // burada sadece indirimli hedef fiyatı tutuyoruz.
-const BUNDLE_ALL_IN_PRICE = 44000;
+const BUNDLE_ALL_IN_PRICE = 44900;
 
 // 5 paket + tüm sabit ek hizmetlerin (adet başına ücretlenenler hariç)
 // indirimsiz toplamı — veriden hesaplanır, elle güncellenmesi gerekmez.
@@ -130,7 +130,7 @@ export default function PackageBuilder() {
                     )}
                   </div>
                 </div>
-                <span className="font-semibold text-[var(--gold-3)] tabular-nums">
+                <span className="font-light italic text-[var(--gold-3)] tabular-nums">
                   {formatTRY(service.price)}
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function PackageBuilder() {
                             </span>
                           )}
                         </span>
-                        <span className="text-sm text-fg-dim shrink-0 tabular-nums">
+                        <span className="text-sm text-fg-dim shrink-0 tabular-nums font-light italic">
                           +{formatTRY(extra.price)}
                         </span>
                       </label>
@@ -192,10 +192,10 @@ export default function PackageBuilder() {
           </p>
         </div>
         <div className="flex items-baseline gap-3 shrink-0">
-          <span className="text-sm text-fg-faint line-through tabular-nums">
+          <span className="text-sm text-fg-faint line-through tabular-nums font-light italic">
             {formatTRY(FULL_BUNDLE_RAW_TOTAL)}
           </span>
-          <span className="text-xl font-semibold text-[var(--gold-3)] tabular-nums">
+          <span className="text-xl font-light italic text-[var(--gold-3)] tabular-nums">
             {formatTRY(BUNDLE_ALL_IN_PRICE)}
           </span>
         </div>
@@ -206,11 +206,11 @@ export default function PackageBuilder() {
           <p className="text-xs text-fg-faint">Toplam</p>
           <div className="flex items-baseline gap-3 mt-1">
             {bundleActive && (
-              <span className="text-lg text-fg-faint line-through tabular-nums">
+              <span className="text-lg text-fg-faint line-through tabular-nums font-light italic">
                 {formatTRY(rawTotal)}
               </span>
             )}
-            <p className="text-3xl font-semibold text-[var(--gold-3)] tabular-nums">
+            <p className="text-3xl font-light italic text-[var(--gold-3)] tabular-nums">
               {formatTRY(total)}
             </p>
           </div>

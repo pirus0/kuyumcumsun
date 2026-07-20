@@ -21,7 +21,7 @@ export function ServiceCardCompact({ service }: { service: Service }) {
       <Icon size={20} className="text-fg-faint" />
       <h3 className="font-medium mt-1">{service.title}</h3>
       <p className="text-sm text-fg-dim leading-relaxed">{service.tagline}</p>
-      <span className="mt-auto pt-3 inline-flex items-center gap-1.5 text-sm text-[var(--gold-3)]">
+      <span className="mt-auto pt-3 inline-flex items-center gap-1.5 text-sm text-[var(--gold-3)] font-light italic">
         {formatTRY(service.price)}
         <IconArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
       </span>
