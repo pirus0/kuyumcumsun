@@ -108,25 +108,6 @@ export default function PackageBuilder() {
 
   return (
     <div className="hairline-t">
-      <div className="hairline-b py-6 flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <span className="text-[10px] uppercase tracking-wide text-[var(--gold-3)]">
-            Tam Hizmet
-          </span>
-          <p className="text-sm text-fg-dim mt-1">
-            5 paketin ve tüm ek hizmetlerin tamamını alın.
-          </p>
-        </div>
-        <div className="flex items-baseline gap-3 shrink-0">
-          <span className="text-sm text-fg-faint line-through tabular-nums">
-            {formatTRY(FULL_BUNDLE_RAW_TOTAL)}
-          </span>
-          <span className="text-xl font-semibold text-[var(--gold-3)] tabular-nums">
-            {formatTRY(BUNDLE_ALL_IN_PRICE)}
-          </span>
-        </div>
-      </div>
-
       {SERVICES.map((service) => {
         const Icon = ICONS[service.icon];
         const pkgChecked = selectedPkgs.has(service.slug);
@@ -200,6 +181,25 @@ export default function PackageBuilder() {
           </div>
         );
       })}
+
+      <div className="hairline-b py-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span className="text-[10px] uppercase tracking-wide text-[var(--gold-3)]">
+            Tam Hizmet
+          </span>
+          <p className="text-sm text-fg-dim mt-1">
+            5 paketin ve tüm ek hizmetlerin tamamını alın.
+          </p>
+        </div>
+        <div className="flex items-baseline gap-3 shrink-0">
+          <span className="text-sm text-fg-faint line-through tabular-nums">
+            {formatTRY(FULL_BUNDLE_RAW_TOTAL)}
+          </span>
+          <span className="text-xl font-semibold text-[var(--gold-3)] tabular-nums">
+            {formatTRY(BUNDLE_ALL_IN_PRICE)}
+          </span>
+        </div>
+      </div>
 
       <div className="py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
