@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Glow from "@/components/Glow";
 import Reveal from "@/components/Reveal";
 import ReferenceMehmetPirlanta from "@/components/ReferenceMehmetPirlanta";
+import { IconWhatsApp } from "@/components/icons";
+import { whatsappLink } from "@/lib/whatsapp";
 import { SITE_NAME } from "@/lib/site";
 
 const TITLE = "Hakkımızda";
@@ -34,13 +36,13 @@ export default function HakkimizdaPage() {
         <span className="fade-up text-xs text-fg-dim">Hakkımızda</span>
 
         <Reveal className="mt-5">
-          <p className="text-2xl sm:text-3xl font-medium leading-snug tracking-tight text-balance">
+          <h1 className="text-2xl sm:text-3xl font-medium leading-snug tracking-tight text-balance">
             Biz sadece kuyumcularla çalışıyoruz.{" "}
             <span className="text-fg-dim">
               Başka bir sektörden gelen teklifi görmeden reddediyoruz — sizi
               gerçekten anlamak, herkese çalışmamaktan geçiyor.
             </span>
-          </p>
+          </h1>
         </Reveal>
 
         <p className="fade-up delay-1 text-fg-dim text-sm sm:text-base mt-8 max-w-lg mx-auto">
@@ -73,6 +75,28 @@ export default function HakkimizdaPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="hairline-t max-w-3xl mx-auto px-6 sm:px-8 py-20 sm:py-24">
+        <span className="fade-up text-xs text-fg-dim">Referans Ödülü</span>
+        <h2 className="fade-up delay-1 text-2xl sm:text-3xl font-semibold tracking-tight mt-3 max-w-lg">
+          Tanıdığınız bir kuyumcuyu bize yönlendirin, ikiniz de kazanın
+        </h2>
+        <p className="fade-up delay-2 text-fg-dim text-sm sm:text-base mt-5 max-w-lg leading-relaxed">
+          Sizinle çalışmamız sürerken önerdiğiniz kuyumcu bizden bir paket
+          alırsa, ikinize de paketlerde %10 indirim uygularız.
+        </p>
+        <a
+          href={whatsappLink(
+            "Merhaba, bir kuyumcu arkadaşımı Kuyumcumsun'a yönlendirmek istiyorum."
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fade-up delay-3 btn-ghost mt-7"
+        >
+          <IconWhatsApp size={18} />
+          Yönlendirmek İstiyorum
+        </a>
       </section>
     </div>
   );

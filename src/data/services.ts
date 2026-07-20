@@ -2,6 +2,8 @@ export type ExtraItem = {
   label: string;
   price: number;
   recommended?: boolean;
+  /** Parça/adet başına ücretlenir; "hepsi dahil" paket indiriminin kapsamı dışında tutulur. */
+  perUnit?: boolean;
 };
 
 export type Service = {
@@ -13,7 +15,13 @@ export type Service = {
   price: number;
   content: string[];
   extras: ExtraItem[];
+  /** Fiyatın altında gösterilen, gelecekteki bir maliyeti şeffafça açıklayan not. */
+  note?: string;
 };
+
+// Dolar bazında tutuyoruz ki güncel kura göre TL karşılığı yeniden
+// hesaplanabilsin — sabit bir TL rakamı zamanla kurdan kopar.
+export const ANNUAL_MAINTENANCE_FEE_USD = 24;
 
 export const SERVICES: Service[] = [
   {
@@ -61,6 +69,7 @@ export const SERVICES: Service[] = [
       { label: "Özel animasyonlar", price: 1490 },
       { label: "Vitrin modu (gece/gündüz teması)", price: 990 },
     ],
+    note: `İlk yıl domain ve canlı altın kuru dahildir. İkinci yıldan itibaren yıllık $${ANNUAL_MAINTENANCE_FEE_USD} bakım ücreti uygulanır (domain yenileme + kesintisiz kur akışı).`,
   },
   {
     slug: "kurumsal-kimlik",
@@ -118,7 +127,7 @@ export const SERVICES: Service[] = [
       "15 ürün/parçaya kadar çekim",
     ],
     extras: [
-      { label: "Ek ürün başına çekim (parça)", price: 90 },
+      { label: "Ek ürün başına çekim (parça)", price: 90, perUnit: true },
       { label: "Model üzerinde çekim", price: 1990, recommended: true },
       { label: "Video / Reels çekimi", price: 1490 },
     ],

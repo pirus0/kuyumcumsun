@@ -148,3 +148,12 @@ export function IconTrendDown({ className, size = 14 }: IconProps) {
     </svg>
   );
 }
+
+export function IconPlus({ className, size = 18 }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} className={className} {...base}>
+      <path d="M12 5v14" />
+      <path d="M5 12h14" />
+    </svg>
+  );
+}

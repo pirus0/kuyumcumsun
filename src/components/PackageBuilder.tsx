@@ -22,6 +22,20 @@ const ICONS = {
   camera: IconCamera,
 };
 
+// Tüm paketler + tüm ek hizmetler (adet başına ücretlenenler hariç) birlikte
+// alındığında geçerli olan sabit fiyat. Normal toplamı biz hesaplıyoruz,
+// burada sadece indirimli hedef fiyatı tutuyoruz.
+const BUNDLE_ALL_IN_PRICE = 44000;
+
+// 5 paket + tüm sabit ek hizmetlerin (adet başına ücretlenenler hariç)
+// indirimsiz toplamı — veriden hesaplanır, elle güncellenmesi gerekmez.
+const FULL_BUNDLE_RAW_TOTAL = SERVICES.reduce((sum, s) => {
+  const fixedExtrasTotal = s.extras
+    .filter((e) => !e.perUnit)
+    .reduce((s2, e) => s2 + e.price, 0);
+  return sum + s.price + fixedExtrasTotal;
+}, 0);
+
 function extraKey(slug: string, index: number) {
   return `${slug}:${index}`;
 }
@@ -61,9 +75,25 @@ export default function PackageBuilder() {
       .map((e, i) => ({ ...e, key: extraKey(s.slug, i) }))
       .filter((e) => selectedExtras.has(e.key))
   );
-  const total =
+
+  const allFixedExtraKeys = SERVICES.flatMap((s) =>
+    s.extras
+      .map((e, i) => ({ ...e, key: extraKey(s.slug, i) }))
+      .filter((e) => !e.perUnit)
+      .map((e) => e.key)
+  );
+  const bundleActive =
+    chosenPkgs.length === SERVICES.length &&
+    allFixedExtraKeys.every((key) => selectedExtras.has(key));
+
+  const rawTotal =
     chosenPkgs.reduce((sum, s) => sum + s.price, 0) +
     chosenExtras.reduce((sum, e) => sum + e.price, 0);
+  const perUnitCost = chosenExtras
+    .filter((e) => e.perUnit)
+    .reduce((sum, e) => sum + e.price, 0);
+  const total = bundleActive ? BUNDLE_ALL_IN_PRICE + perUnitCost : rawTotal;
+  const savings = bundleActive ? rawTotal - total : 0;
 
   const message =
     chosenPkgs.length === 0 && chosenExtras.length === 0
@@ -72,11 +102,31 @@ export default function PackageBuilder() {
           "Merhaba, aşağıdaki hizmetlerle ilgileniyorum:",
           ...chosenPkgs.map((s) => `• ${s.title} — ${formatTRY(s.price)}`),
           ...chosenExtras.map((e) => `• ${e.label} — ${formatTRY(e.price)}`),
+          ...(bundleActive ? [`Tüm paketler indirimi uygulandı (-${formatTRY(savings)})`] : []),
           `Toplam: ${formatTRY(total)}`,
         ].join("\n");
 
   return (
     <div className="hairline-t">
+      <div className="hairline-b py-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span className="text-[10px] uppercase tracking-wide text-[var(--gold-3)]">
+            Tam Hizmet
+          </span>
+          <p className="text-sm text-fg-dim mt-1">
+            5 paketin ve tüm ek hizmetlerin tamamını alın.
+          </p>
+        </div>
+        <div className="flex items-baseline gap-3 shrink-0">
+          <span className="text-sm text-fg-faint line-through tabular-nums">
+            {formatTRY(FULL_BUNDLE_RAW_TOTAL)}
+          </span>
+          <span className="text-xl font-semibold text-[var(--gold-3)] tabular-nums">
+            {formatTRY(BUNDLE_ALL_IN_PRICE)}
+          </span>
+        </div>
+      </div>
+
       {SERVICES.map((service) => {
         const Icon = ICONS[service.icon];
         const pkgChecked = selectedPkgs.has(service.slug);
@@ -94,6 +144,9 @@ export default function PackageBuilder() {
                   <div>
                     <h2 className="font-medium">{service.title}</h2>
                     <p className="text-sm text-fg-dim">{service.tagline}</p>
+                    {service.note && (
+                      <p className="text-xs text-fg-faint mt-1.5 max-w-sm">{service.note}</p>
+                    )}
                   </div>
                 </div>
                 <span className="font-semibold text-[var(--gold-3)] tabular-nums">
@@ -151,11 +204,20 @@ export default function PackageBuilder() {
       <div className="py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
           <p className="text-xs text-fg-faint">Toplam</p>
-          <p className="text-3xl font-semibold text-[var(--gold-3)] mt-1 tabular-nums">
-            {formatTRY(total)}
-          </p>
+          <div className="flex items-baseline gap-3 mt-1">
+            {bundleActive && (
+              <span className="text-lg text-fg-faint line-through tabular-nums">
+                {formatTRY(rawTotal)}
+              </span>
+            )}
+            <p className="text-3xl font-semibold text-[var(--gold-3)] tabular-nums">
+              {formatTRY(total)}
+            </p>
+          </div>
           <p className="text-xs text-fg-dim mt-2 max-w-sm">
-            Fiyatlar yaklaşık olup projenin kapsamına göre kesinleşir.
+            {bundleActive
+              ? `Tüm paketler bir arada: ${formatTRY(savings)} indirim uygulandı.`
+              : "Gördüğünüz fiyat kesin fiyattır, ek ücret çıkmaz."}
           </p>
         </div>
         <a

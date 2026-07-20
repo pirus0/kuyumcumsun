@@ -31,6 +31,7 @@ export default function ProcessSection() {
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mt-3">
           Dört adımda devreye alıyoruz
         </h2>
+        <p className="text-sm text-fg-dim mt-3">Ortalama 7 iş günü içinde teslim.</p>
       </div>
 
       <div className="fade-up delay-1 grid grid-cols-1 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[var(--line)]">

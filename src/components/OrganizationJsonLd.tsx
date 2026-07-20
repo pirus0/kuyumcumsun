@@ -23,6 +23,8 @@ export default function OrganizationJsonLd() {
     ],
     makesOffer: SERVICES.map((s) => ({
       "@type": "Offer",
+      price: s.price,
+      priceCurrency: "TRY",
       itemOffered: {
         "@type": "Service",
         name: s.title,

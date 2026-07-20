@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SERVICES } from "@/data/services";
 import PackageBuilder from "@/components/PackageBuilder";
+import Faq from "@/components/Faq";
+import FaqJsonLd from "@/components/FaqJsonLd";
 import { SITE_NAME } from "@/lib/site";
 
 const TITLE = "Hizmetler";
@@ -34,9 +36,11 @@ export default function HizmetlerPage() {
           Dijital vitrininizi oluşturan beş paket
         </h1>
         <p className="text-fg-dim mt-4 leading-relaxed">
-          Fiyatlar açıkça gösterilir, sürpriz yoktur. İstediğiniz paketleri
-          ve ek hizmetleri seçin, toplamı anında görün; seçtiklerinizle tek
-          dokunuşla WhatsApp&apos;tan iletişime geçin.
+          Fiyatlar açıkça gösterilir, sürpriz yoktur. Ek hizmetlerin hepsi
+          gerçekten işinize yarar — size gerekmeyecek bir şeyi hiç
+          listelemeyiz. İstediğiniz paketleri ve ek hizmetleri seçin,
+          toplamı anında görün; tümünü birden alırsanız hesaplayıcı özel
+          indirimli fiyatı otomatik gösterir.
         </p>
       </div>
 
@@ -55,6 +59,18 @@ export default function HizmetlerPage() {
       <div className="fade-up delay-2 mt-6">
         <PackageBuilder />
       </div>
+
+      <div className="mt-20 sm:mt-28">
+        <span className="text-xs text-fg-dim">Sıkça Sorulan Sorular</span>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mt-3">
+          Merak edilenler
+        </h2>
+        <div className="mt-8">
+          <Faq />
+        </div>
+      </div>
+
+      <FaqJsonLd />
     </div>
   );
 }

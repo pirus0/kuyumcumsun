@@ -6,6 +6,7 @@ const LINKS = [
   { href: "/", label: "Anasayfa" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/hakkimizda", label: "Hakkımızda" },
+  { href: "/blog", label: "Blog" },
   { href: "/iletisim", label: "İletişim" },
 ];
 
@@ -27,7 +28,7 @@ export default function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-fg-dim hover:text-fg transition-colors w-fit"
+              className="text-sm text-fg-dim hover:text-fg transition-colors w-fit py-3 -my-3"
             >
               {link.label}
             </a>
@@ -40,7 +41,7 @@ export default function Footer() {
             href={whatsappLink("Merhaba, Kuyumcumsun hakkında bilgi almak istiyorum.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-fg-dim hover:text-fg transition-colors w-fit"
+            className="inline-flex items-center gap-2 text-sm text-fg-dim hover:text-fg transition-colors w-fit py-3 -my-3"
           >
             <IconWhatsApp size={17} />
             {WHATSAPP_DISPLAY}
@@ -50,10 +51,10 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 pb-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-fg-faint">
         <span>© {new Date().getFullYear()} Kuyumcumsun. Tüm hakları saklıdır.</span>
-        <a href="/gizlilik" className="hover:text-fg-dim transition-colors">
+        <a href="/gizlilik" className="hover:text-fg-dim transition-colors py-3.5 -my-3.5">
           Gizlilik Politikası
         </a>
-        <a href="/kvkk" className="hover:text-fg-dim transition-colors">
+        <a href="/kvkk" className="hover:text-fg-dim transition-colors py-3.5 -my-3.5">
           KVKK Aydınlatma Metni
         </a>
       </div>
